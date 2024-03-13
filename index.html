@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trang Web Đẹp</title>
+<style>
+    /* CSS để thiết kế giao diện */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+    main {
+        padding: 20px;
+    }
+    #encodedMessage {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    #decodedMessage {
+        margin-top: 20px;
+        padding: 10px;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <h1>Giải Mã Tin Nhắn</h1>
+    </header>
+    <main>
+        <input type="text" id="encodedMessage" placeholder="Nhập tin nhắn cần giải mã...">
+        <button onclick="decodeMessage()">Giải Mã</button>
+        <div id="decodedMessage"></div>
+    </main>
+    <script>
+        // JavaScript để giải mã tin nhắn
+        function decodeMessage() {
+            let encodedMessage = document.getElementById("encodedMessage").value;
+            let decoded = "";
+            for (let i = 0; i < encodedMessage.length; i++) {
+                let charCode = encodedMessage.charCodeAt(i);
+                let decodedCharCode = charCode - 3; // Dịch chuyển ký tự xuống 3 vị trí trong bảng mã Unicode
+                let decodedChar = String.fromCharCode(decodedCharCode);
+                decoded += decodedChar;
+            }
+            document.getElementById("decodedMessage").innerText = "Tin nhắn đã giải mã: " + decoded;
+        }
+    </script>
+</body>
+</html>
